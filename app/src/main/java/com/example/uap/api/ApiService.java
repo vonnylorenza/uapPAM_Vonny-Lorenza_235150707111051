@@ -14,21 +14,20 @@ import retrofit2.http.Path;
 
 public interface ApiService {
 
-    // Asumsi endpoint Postman
-    String BASE_URL = "https://uappam.kuncipintu.my.id/"; // GANTI DENGAN BASE URL API ANDA YANG SEBENARNYA!
+    String BASE_URL = "https://uappam.kuncipintu.my.id/";
 
-    @GET("items") // Ganti dengan endpoint GET all items Anda
+    @GET("items")
     Call<List<PlantItem>> getAllItems();
 
-    @GET("items/{id}") // Ganti dengan endpoint GET item by ID Anda
+    @GET("items/{id}")
     Call<PlantItem> getItemById(@Path("id") String itemId);
 
-    @POST("items") // Ganti dengan endpoint POST (create) Anda
+    @POST("items")
     Call<PlantItem> createItem(@Body PlantItem item);
 
-    @PUT("items/{id}") // Ganti dengan endpoint PUT (update) Anda
+    @PUT("items/{id}")
     Call<PlantItem> updateItem(@Path("id") String itemId, @Body PlantItem item);
 
-    @DELETE("items/{id}") // Ganti dengan endpoint DELETE Anda
+    @DELETE("items/{id}")
     Call<Void> deleteItem(@Path("id") String itemId);
 }

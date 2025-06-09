@@ -45,31 +45,25 @@ public class PlantItemAdapter extends RecyclerView.Adapter<PlantItemAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         PlantItem item = plantItemList.get(position);
         holder.tvPlantName.setText(item.getNamaTanaman());
-        // Format harga menjadi "Rp 200.000"
+
         holder.tvPlantPrice.setText(String.format("Rp %.0f", item.getHarga()));
 
-        // Memuat gambar menggunakan Glide
-        // PASTIKAN import com.bumptech.glide.Glide; TIDAK DIKOMENTARI
-        // PASTIKAN dependency Glide sudah ditambahkan di build.gradle (Module: app)
         if (item.getImageUrl() != null && !item.getImageUrl().isEmpty()) {
             Glide.with(context)
                     .load(item.getImageUrl())
-                    .placeholder(R.drawable.placeholder_plant) // Gambar placeholder saat loading
-                    .error(R.drawable.placeholder_plant) // Gambar jika gagal loading
+                    .placeholder(R.drawable.placeholder_plant)
+                    .error(R.drawable.placeholder_plant)
                     .into(holder.ivPlantImage);
         } else {
             holder.ivPlantImage.setImageResource(R.drawable.placeholder_plant);
         }
 
-        // Menangani klik tombol Hapus
         holder.btnDelete.setOnClickListener(v -> {
             if (listener != null) {
-                // Pastikan item.getId() mengembalikan ID yang benar dari API
                 listener.onDeleteClick(item.getId());
             }
         });
 
-        // Menangani klik tombol Detail
         holder.btnDetail.setOnClickListener(v -> {
             if (listener != null) {
                 listener.onDetailClick(item);
@@ -89,7 +83,6 @@ public class PlantItemAdapter extends RecyclerView.Adapter<PlantItemAdapter.View
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            // SESUAIKAN ID INI DENGAN YANG ADA DI item_plant.xml
             ivPlantImage = itemView.findViewById(R.id.plantImageView);
             tvPlantName = itemView.findViewById(R.id.plantNameTextView);
             tvPlantPrice = itemView.findViewById(R.id.plantPriceTextView);

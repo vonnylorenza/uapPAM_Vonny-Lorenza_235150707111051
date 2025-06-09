@@ -11,7 +11,6 @@ public class ApiClient {
 
     public static ApiService getApiService() {
         if (retrofit == null) {
-            // Untuk logging request dan response API (opsional)
             HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
             logging.setLevel(HttpLoggingInterceptor.Level.BODY);
             OkHttpClient client = new OkHttpClient.Builder()
@@ -21,7 +20,7 @@ public class ApiClient {
             retrofit = new Retrofit.Builder()
                     .baseUrl(ApiService.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
-                    .client(client) // Tambahkan client dengan logging
+                    .client(client)
                     .build();
         }
         return retrofit.create(ApiService.class);
