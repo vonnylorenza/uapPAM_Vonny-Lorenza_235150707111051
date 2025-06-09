@@ -16,7 +16,6 @@
         android:textColor="@color/green_primary"
         android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_margin="16dp"
         app:layout_constraintBottom_toTopOf="@id/logo_welcome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -32,7 +31,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.449" />
+        app:layout_constraintVertical_bias="0.449"
+        android:contentDescription="Welcome Logo" />
 
     <Button
         android:id="@+id/btn_welcome_login"
@@ -44,7 +44,6 @@
         android:text="Login"
         android:textColor="@android:color/white"
         app:cornerRadius="8dp"
-        app:layout_constraintBottom_margin="8dp"
         app:layout_constraintBottom_toTopOf="@id/tv_welcome_register_prompt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,10 +56,11 @@
         android:layout_marginBottom="36dp"
         android:text="Belum punya akun? Register"
         android:textColor="@color/green_primary"
-        app:layout_constraintBottom_margin="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:clickable="true"
+        android:focusable="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
