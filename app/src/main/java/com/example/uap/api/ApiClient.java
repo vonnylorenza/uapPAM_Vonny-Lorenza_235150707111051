@@ -1,4 +1,4 @@
-package com.example.uap.api; // Sesuaikan dengan package Anda
+package com.example.uap.api;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

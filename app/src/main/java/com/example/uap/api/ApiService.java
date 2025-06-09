@@ -16,18 +16,18 @@ public interface ApiService {
 
     String BASE_URL = "https://uappam.kuncipintu.my.id/";
 
-    @GET("items")
+    @GET("plant")
     Call<List<PlantItem>> getAllItems();
 
-    @GET("items/{id}")
+    @GET("plant/{id}")
     Call<PlantItem> getItemById(@Path("id") String itemId);
 
-    @POST("items")
+    @POST("plant")
     Call<PlantItem> createItem(@Body PlantItem item);
 
-    @PUT("items/{id}")
+    @PUT("plant/{id}")
     Call<PlantItem> updateItem(@Path("id") String itemId, @Body PlantItem item);
 
-    @DELETE("items/{id}")
+    @DELETE("plant/{id}")
     Call<Void> deleteItem(@Path("id") String itemId);
 }

@@ -1,17 +1,16 @@
-package com.example.uap.model; // Sesuaikan dengan package Anda
+package com.example.uap.model;
 
 import com.google.gson.annotations.SerializedName;
 
 public class PlantItem {
 
-    private String id; // ID unik item, biasanya dari API
-    @SerializedName("nama_tanaman") // Jika nama di JSON berbeda dari nama variabel
+    private String id;
+    @SerializedName("nama_tanaman")
     private String namaTanaman;
     private double harga;
     private String deskripsi;
     @SerializedName("image_url")
-    private String imageUrl; // Opsional, jika API menyediakan URL gambar
-
+    private String imageUrl;
     public PlantItem(String id, String namaTanaman, double harga, String deskripsi, String imageUrl) {
         this.id = id;
         this.namaTanaman = namaTanaman;
@@ -20,7 +19,6 @@ public class PlantItem {
         this.imageUrl = imageUrl;
     }
 
-    // Konstruktor tanpa ID untuk POST (create)
     public PlantItem(String namaTanaman, double harga, String deskripsi, String imageUrl) {
         this.namaTanaman = namaTanaman;
         this.harga = harga;

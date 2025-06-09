@@ -24,7 +24,7 @@ public class AddItemActivity extends AppCompatActivity {
     private static final String TAG = "AddItemActivity";
     private EditText etName, etPrice, etDescription;
     private Button btnAdd;
-    private ImageView ivPlantImage; // Untuk memilih/menampilkan gambar (opsional)
+    private ImageView ivPlantImage;
     private ApiService apiService;
 
     @Override
@@ -36,7 +36,7 @@ public class AddItemActivity extends AppCompatActivity {
         etPrice = findViewById(R.id.et_add_plant_price);
         etDescription = findViewById(R.id.et_add_plant_description);
         btnAdd = findViewById(R.id.btn_add_plant);
-        ivPlantImage = findViewById(R.id.iv_add_plant_image); // Jika Anda ingin fitur upload gambar
+        ivPlantImage = findViewById(R.id.iv_add_plant_image);
 
         apiService = ApiClient.getApiService();
 
@@ -47,8 +47,6 @@ public class AddItemActivity extends AppCompatActivity {
             }
         });
 
-        // Jika Anda ingin fitur memilih gambar, tambahkan listener di ivPlantImage
-        // ivPlantImage.setOnClickListener(v -> { /* Logika pilih gambar */ });
     }
 
     private void createPlantItem() {
@@ -69,8 +67,7 @@ public class AddItemActivity extends AppCompatActivity {
             return;
         }
 
-        // Asumsi URL gambar statis atau dari input user/upload
-        String imageUrl = "https://placehold.co/150x150/4CAF50/FFFFFF?text=Plant"; // Placeholder
+        String imageUrl = "https://placehold.co/150x150/4CAF50/FFFFFF?text=Plant";
 
         PlantItem newPlant = new PlantItem(name, price, description, imageUrl);
 
@@ -79,7 +76,7 @@ public class AddItemActivity extends AppCompatActivity {
             public void onResponse(@NonNull Call<PlantItem> call, @NonNull Response<PlantItem> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     Toast.makeText(AddItemActivity.this, "Item berhasil ditambahkan!", Toast.LENGTH_SHORT).show();
-                    finish(); // Kembali ke halaman utama
+                    finish();
                 } else {
                     Toast.makeText(AddItemActivity.this, "Gagal menambahkan item: " + response.message(), Toast.LENGTH_SHORT).show();
                     Log.e(TAG, "Gagal menambahkan item: " + response.message());
