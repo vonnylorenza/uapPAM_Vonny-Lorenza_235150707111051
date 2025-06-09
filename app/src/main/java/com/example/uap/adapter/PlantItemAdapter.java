@@ -11,8 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide; // PASTIKAN INI TIDAK DIKOMENTARI
-import com.example.uap.R; // PASTIKAN INI TIDAK DIKOMENTARI DAN PAKETNYA BENAR (com.example.uap.R)
+import com.bumptech.glide.Glide;
+import com.example.uap.R;
 import com.example.uap.model.PlantItem;
 
 import java.util.List;
